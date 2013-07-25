@@ -78,15 +78,44 @@ package robotlegs.extensions.starlingViewMap.impl
 		/* Private Methods
 		/*============================================================================*/
 		
-		private function onStarlingAdded( event:Event ):void
-		{
-			addStarlingView( event.target as DisplayObject );
-		}
+		private function onStarlingAdded(event:Event):void
+		    {
+		        mapView(event.target as DisplayObject);
+		    }
 		
-		private function onStarlingRemoved( event:Event ):void
-		{
-			removeStarlingView( event.target as DisplayObject );
-		}
+		    private function mapView(displayObject:DisplayObject):void
+		    {
+		        addStarlingView(displayObject);
+		        //mapping children that are allredy added 
+		        //(they will not dispatch ADDED)
+		        var displayObjectContainer:DisplayObjectContainer = displayObject as DisplayObjectContainer;
+		        if (displayObjectContainer)
+		        {
+		            for(var i:uint = 0; i < displayObjectContainer.numChildren; i++)
+		            {
+		                mapView(displayObjectContainer.getChildAt(i));
+		            }
+		        }
+		    }
+		
+		    private function onStarlingRemoved(event:Event):void
+		    {
+		        unmapView(event.target as DisplayObject);
+		    }
+		
+		    private function unmapView(displayObject:DisplayObject):void
+		    {
+		        removeStarlingView(displayObject);
+		        //unmapping children that are allredy added 
+		        var displayObjectContainer:DisplayObjectContainer = displayObject as DisplayObjectContainer;
+		        if (displayObjectContainer)
+		        {
+		            for(var i:uint = 0; i < displayObjectContainer.numChildren; i++)
+		            {
+		                unmapView(displayObjectContainer.getChildAt(i));
+		            }
+		        }
+		    }
 		
 		private function onRootCreated( event:Event ):void
 		{
