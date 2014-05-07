@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="Flex" version="4">
+  <component name="FlexBuildConfigurationManager" active="robotlegs2-starling-viewmap">
+    <configurations>
+      <configuration name="robotlegs2-starling-viewmap" pure-as="true" output-type="Library" output-file="robotlegs2-starling-viewmap.swc" output-folder="$MODULE_DIR$/bin">
+        <dependencies target-player="11.7">
+          <entries>
+            <entry library-id="6df3d9c4-6532-44c9-8bf0-1c754144c319">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="1a5c5e9f-5539-46a5-9bc7-79a1d3818b59">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="flex_sdk_4.6_air3.7_fp11.7" />
+        </dependencies>
+        <compiler-options />
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+    </configurations>
+    <compiler-options />
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="flex_sdk_4.6_air3.7_fp11.7" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="6df3d9c4-6532-44c9-8bf0-1c754144c319" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../thirdparty/robotlegs-framework/bin/robotlegs-framework-v2.2.0.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="1a5c5e9f-5539-46a5-9bc7-79a1d3818b59" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../thirdparty/starling/bin/starling.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
+
