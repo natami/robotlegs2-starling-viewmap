@@ -12,12 +12,13 @@ package robotlegs.extensions.starlingViewMap.impl
 
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
+	import starling.display.DisplayObjectContainer;
 	import starling.events.Event;
 
 	/**
-	 * 
+	 *
 	 * StarlingViewMap Impl
-	 * 
+	 *
 	 * @author jamieowen
 	 */
 	public class StarlingViewMap implements IStarlingViewMap
@@ -25,45 +26,45 @@ package robotlegs.extensions.starlingViewMap.impl
 		/*============================================================================*/
 		/* Private Properties                                                         */
 		/*============================================================================*
-		 * 
+		 *
 		 */
 		[Inject]
 		public var starling:Starling;
-		
+
 		[Inject]
 		public var mediatorMap:IMediatorMap;
-		
-				
+
+
 		/*============================================================================*/
 		/* Private Properties                                                         */
 		/*============================================================================*/
-		
-		
-		
+
+
+
 		/*============================================================================*/
 		/* Constructor
 		/*============================================================================*/
-		
+
 		public function StarlingViewMap()
 		{
-			
+
 		}
-		
+
 		[PostConstruct]
 		public function init():void
-		{	
+		{
 			// listen for display object events
 			starling.stage.addEventListener( Event.ADDED, onStarlingAdded );
 			starling.stage.addEventListener( Event.REMOVED, onStarlingRemoved );
-			
+
 			// adds stage as view to allow a Starling Stage Mediator.
 			starling.addEventListener( Event.ROOT_CREATED, onRootCreated );
 		}
-		
+
 		/*============================================================================*/
 		/* Public Methods
 		/*============================================================================*/
-		
+
 		public function addStarlingView(view : DisplayObject) : void
 		{
 			mediatorMap.mediate(view);
@@ -73,20 +74,20 @@ package robotlegs.extensions.starlingViewMap.impl
 		{
 			mediatorMap.unmediate(view);
 		}
-		
+
 		/*============================================================================*/
 		/* Private Methods
 		/*============================================================================*/
-		
+
 		private function onStarlingAdded(event:Event):void
 		    {
 		        mapView(event.target as DisplayObject);
 		    }
-		
+
 		    private function mapView(displayObject:DisplayObject):void
 		    {
 		        addStarlingView(displayObject);
-		        //mapping children that are allredy added 
+		        //mapping children that are allredy added
 		        //(they will not dispatch ADDED)
 		        var displayObjectContainer:DisplayObjectContainer = displayObject as DisplayObjectContainer;
 		        if (displayObjectContainer)
@@ -97,16 +98,16 @@ package robotlegs.extensions.starlingViewMap.impl
 		            }
 		        }
 		    }
-		
+
 		    private function onStarlingRemoved(event:Event):void
 		    {
 		        unmapView(event.target as DisplayObject);
 		    }
-		
+
 		    private function unmapView(displayObject:DisplayObject):void
 		    {
 		        removeStarlingView(displayObject);
-		        //unmapping children that are allredy added 
+		        //unmapping children that are allredy added
 		        var displayObjectContainer:DisplayObjectContainer = displayObject as DisplayObjectContainer;
 		        if (displayObjectContainer)
 		        {
@@ -116,11 +117,11 @@ package robotlegs.extensions.starlingViewMap.impl
 		            }
 		        }
 		    }
-		
+
 		private function onRootCreated( event:Event ):void
 		{
 			starling.removeEventListener( Event.ROOT_CREATED, onRootCreated );
-			
+
 			addStarlingView( starling.stage );
 		}
 	}
