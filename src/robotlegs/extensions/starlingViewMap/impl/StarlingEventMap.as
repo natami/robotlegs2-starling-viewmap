@@ -1,9 +1,9 @@
-package robotlegs.bender.extensions.starling.impl
+package robotlegs.extensions.starlingViewMap.impl
 {
 	import robotlegs.bender.extensions.localEventMap.impl.EventMap;
-	import robotlegs.bender.extensions.starling.api.IStarlingEventMap;
-	
-	import starling.events.EventDispatcher;
+import robotlegs.extensions.starlingViewMap.api.IStarlingEventMap;
+
+import starling.events.EventDispatcher;
 	
 	public class StarlingEventMap extends EventMap implements IStarlingEventMap
 	{
