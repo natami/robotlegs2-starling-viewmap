@@ -13,7 +13,8 @@ package robotlegs.extensions.starlingViewMap
 	import robotlegs.bender.framework.impl.UID;
 	import robotlegs.extensions.starlingViewMap.api.IStarlingEventMap;
 	import robotlegs.extensions.starlingViewMap.api.IStarlingViewMap;
-	import robotlegs.extensions.starlingViewMap.impl.StarlingViewMap;
+import robotlegs.extensions.starlingViewMap.impl.StarlingEventMap;
+import robotlegs.extensions.starlingViewMap.impl.StarlingViewMap;
 	import robotlegs.bender.extensions.matching.instanceOfType;
 	import starling.core.Starling;
 
@@ -59,7 +60,7 @@ package robotlegs.extensions.starlingViewMap
 			_context.addConfigHandler(instanceOfType(Starling), handleStarling);
 
 			_context.injector.map(IStarlingViewMap).toSingleton(StarlingViewMap);
-			_context.injector.map( IStarlingEventMap).toValue(new StarlingViewMap());
+			_context.injector.map(IStarlingEventMap).toValue(new StarlingEventMap());
 		}
 
 		/*============================================================================*/
