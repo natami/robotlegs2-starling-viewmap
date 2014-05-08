@@ -60,7 +60,7 @@ package robotlegs.extensions.starlingViewMap
 			_context.addConfigHandler(instanceOfType(Starling), handleStarling);
 
 			_context.injector.map(IStarlingViewMap).toSingleton(StarlingViewMap);
-			_context.injector.map(IStarlingEventMap).toValue(new StarlingEventMap());
+			_context.injector.map(IStarlingEventMap).toType(StarlingEventMap);
 		}
 
 		/*============================================================================*/
