@@ -7,6 +7,7 @@
 
 package robotlegs.extensions.starlingViewMap
 {
+
 	import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.api.IExtension;
@@ -57,6 +58,7 @@ package robotlegs.extensions.starlingViewMap
 		public function extend(context : IContext) : void
 		{
 			_context = context;
+
 			_context.addConfigHandler(instanceOfType(Starling), handleStarling);
 
 			_context.injector.map(IStarlingViewMap).toSingleton(StarlingViewMap);
