@@ -25,7 +25,6 @@ public class FeathersMediator extends StarlingMediator {
 
 	public function initializeComplete():void
 	{
-		initialize();
 	}
 }
 }
